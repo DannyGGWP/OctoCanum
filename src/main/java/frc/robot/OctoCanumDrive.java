@@ -28,12 +28,12 @@ public class OctoCanumDrive extends Subsystem
 
   public double getEncPos()
   {
-
+    return 0.0;
   }
 
   public double getYaw()
   {
-
+    return 0.0;
   }
 
   public void zeroYaw()
