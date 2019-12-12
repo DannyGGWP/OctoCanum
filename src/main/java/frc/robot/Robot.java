@@ -19,20 +19,27 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * project.
  */
 public class Robot extends TimedRobot {
+  /** 
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  private boolean m_isMecanumDrive; 
+  */
+  
+  public static OI m_oi;
+  public static OctoCanumDrive driveTrain = new OctoCanumDrive();
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
   @Override
   public void robotInit() {
+    /** 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    */
   }
 
   /**
@@ -85,7 +92,9 @@ public class Robot extends TimedRobot {
    * This function is called periodically during operator control.
    */
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
+    driveTrain.setDrives(OI.driveJoystick.getY(),OI.driveJoystick.getX());
   }
 
   /**
